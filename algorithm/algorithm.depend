@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1436606614 source:/home/alan/Documents/algorithm/algorithm/main.cpp
+	<iostream>
+	<vector>
+	<algorithm>
+
