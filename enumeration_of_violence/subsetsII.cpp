@@ -21,30 +21,17 @@ public:
 private:
     static void subset(vector<vector<int> > &res, vector<int> &path, int step, vector<int> &S)
     {
-		
-        if (step == S.size())
-        {
-            res.push_back(path);
-            return ;
-        }
+        res.push_back(path);
         
-        subset(res, path, step + 1, S);
+        //subset(res, path, step + 1, S);
         
-        path.push_back(S[step]);
-        subset(res, path, step + 1, S);
-        path.pop_back();
-		
-		/*
-
-		res.push_back(path);
-		
-		for ( int i = step; i < S.size(); ++i)
+		for (int i = step; i < S.size(); ++i)
 		{
+        	if (i != step && S[i] == S[i-1]) continue;
 			path.push_back(S[i]);
-			subset(res, path, i + 1, S);
-			path.pop_back();
+        	subset(res, path, i + 1, S);
+        	path.pop_back();
 		}
-		*/
     }     
 };
 
@@ -52,7 +39,7 @@ private:
 int main()
 {   
     Solution S;
-    int a[] = {1, 2, 3};
+    int a[] = {1, 2, 2};
     vector<int> vec(a, a+3);
     vector<vector<int> > result = S.subsets(vec);
     
